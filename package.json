@@ -1,0 +1,23 @@
+{
+  "name": "clearsky-confluence",
+  "version": "1.0.0",
+  "description": "Clearsky plugin: Copilot chats search and read Confluence, read only, through Atlassian's MCP server",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "files": [
+    "clearsky-plugin.json",
+    "source.mjs",
+    "lib",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "clearsky-plugin"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,53 @@
+{
+  "name": "confluence",
+  "label": "Confluence",
+  "version": "1.0.0",
+  "description": "Lets Copilot chats search and read Confluence pages with `confluence …`, read only, through Atlassian's MCP server and your own login.",
+  "clearsky": 1,
+  "entry": "source.mjs",
+  "area": "work",
+  "settings": {
+    "CONFLUENCE_SITE": {
+      "label": "Confluence site (optional)",
+      "hint": "Your site's address, like acme.atlassian.net. Only needed when your login sees more than one site; otherwise the one it sees is used.",
+      "secret": false,
+      "pattern": "^\\s*(https?://)?[A-Za-z\\d][A-Za-z\\d.-]*\\.[A-Za-z]{2,}/?\\s*$",
+      "patternHint": "write the site like acme.atlassian.net"
+    },
+    "CONFLUENCE_MCP_URL": {
+      "label": "MCP server (advanced)",
+      "hint": "Atlassian's remote MCP server. Leave empty for https://mcp.atlassian.com/v2/mcp.",
+      "secret": false,
+      "pattern": "^\\s*https://\\S+\\s*$",
+      "patternHint": "the address should start with https://"
+    },
+    "CONFLUENCE_MCP_SCOPES": {
+      "label": "Scopes (advanced)",
+      "hint": "Read-only Confluence scopes if empty.<span class=\"more\">Space-separated scopes asked for at login. If empty, Clearsky asks for the scopes the server lists that read or search Confluence, plus staying logged in: nothing that writes, and no Jira. The door uses only read-only tools either way.</span>",
+      "secret": false
+    }
+  },
+  "enabledWhen": [],
+  "hosts": [
+    "mcp.atlassian.com",
+    "auth.atlassian.com"
+  ],
+  "clis": [],
+  "secrets": [
+    {
+      "kind": "oauth",
+      "note": "your Atlassian login for the MCP server (and the client it registered), in ~/.config/clearsky/confluence-mcp.json"
+    }
+  ],
+  "files": [
+    "~/.config/clearsky/confluence-mcp.json"
+  ],
+  "doors": [
+    {
+      "name": "confluence",
+      "about": "searches and reads Confluence pages as you, read only; no writes and no Jira"
+    }
+  ],
+  "note": "Reaches Atlassian's MCP server with your login. Only its read-only Confluence tools are used; secrets it knows the shape of are removed from what comes back, and every call is in Copilot's changes.",
+  "outside": "It reads Confluence with your login for chats that can't hold it, which is what a door is for."
+}
