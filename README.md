@@ -21,6 +21,8 @@ confluence call TOOL '{"json":"arguments"}'
 
 When your login sees more than one Atlassian site, set **Confluence site** (like `acme.atlassian.net`). Your organization's admin may need to allow the Rovo MCP server before the login works.
 
+A team pack can set the site, server and scopes for everyone (`CONFLUENCE_SITE`, `CONFLUENCE_MCP_URL`, `CONFLUENCE_MCP_SCOPES`). The site is only needed when a login sees more than one.
+
 ## Develop
 
 ```sh

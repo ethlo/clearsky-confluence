@@ -1,6 +1,6 @@
 {
   "name": "clearsky-confluence",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Clearsky plugin: Copilot chats search and read Confluence, read only, through Atlassian's MCP server",
   "type": "module",
   "scripts": {
